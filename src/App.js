@@ -1,14 +1,13 @@
 import React from 'react';
 import './App.css';
 import Main from './components/Main';
+import Container from 'react-bootstrap/Container'
 
 function App() {
   return (
-    <div className="App">
-      <header className="App-header">
-        <Main />
-      </header>
-    </div>
+    <Container fluid={true} className="containerStyle">
+      <Main />
+    </Container>
   );
 }
 

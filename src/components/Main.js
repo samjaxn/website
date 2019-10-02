@@ -1,11 +1,13 @@
 import React, { Component } from 'react'
+import { Row, Col } from 'react-bootstrap'
 
 export class Main extends Component {
     render() {
         return (
-            <div>
-                <h1>Samuel Jackson Website</h1>
-            </div>
+            <Row>
+                <Col className="center">Sammy Jackson</Col>
+                <Col>Testing</Col>
+            </Row>
         )
     }
 }
