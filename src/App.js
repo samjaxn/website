@@ -5,9 +5,7 @@ import Container from 'react-bootstrap/Container'
 
 function App() {
   return (
-    <Container fluid={true} className="containerStyle">
       <Main />
-    </Container>
   );
 }
 

@@ -1,4 +1,6 @@
-var NUM_PARTICLES = (ROWS = 100) * (COLS = 200),
+var ROWS = 100,
+  COLS = 200,
+  NUM_PARTICLES = (ROWS) * (COLS),
   THICKNESS = Math.pow(80, 2),
   SPACING = 10,
   MARGIN = 100,
@@ -50,7 +52,8 @@ particle = {
 };
 
 function init() {
-  container = document.getElementById("container");
+  //container = document.getElementById("particlesBG");
+  container = this.bgRef.current;
   canvas = document.createElement("canvas");
 
   ctx = canvas.getContext("2d");
@@ -74,15 +77,11 @@ function init() {
   }
 
   container.addEventListener("mousemove", function(e) {
-    bounds = container.getBoundingClientRect();
+    let bounds = container.getBoundingClientRect();
     mx = e.clientX - bounds.left;
     my = e.clientY - bounds.top;
     man = true;
   });
-
-  if (typeof Stats === "function") {
-    document.body.appendChild((stats = new Stats()).domElement);
-  }
 
   container.appendChild(canvas);
 }
@@ -117,8 +116,8 @@ function step() {
 
     for (i = 0; i < NUM_PARTICLES; i++) {
       p = list[i];
-      (b[(n = (~~p.x + ~~p.y * w) * 4)] = b[n + 1] = b[n + 2] = COLOR),
-        (b[n + 3] = 255);
+      (b[(n = (~~p.x + ~~p.y * w) * 4)] = b[n + 1] = b[n + 2] = COLOR);
+      (b[n + 3] = 255);
     }
 
     ctx.putImageData(a, 0, 0);
