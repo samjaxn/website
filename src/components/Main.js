@@ -14,6 +14,7 @@ var ROWS,
 
   initialized = false,
   animation,
+  clickable = false,
   particle,
   canvas,
   list,
@@ -54,20 +55,14 @@ const Main = () => {
     })
 
     const updateWindowDimensions = () => {
+        console.log("dimensions changed");
         initialized = false;
         cancelAnimationFrame(animation);
         handleOnClick();
     }
 
     window.addEventListener('resize', updateWindowDimensions);
-
-    const drawLogo = () => {
-        ctx.font = "15px Arial";
-        ctx.textBaseline = 'middle';
-        ctx.textAlign = "center";
-        ctx.fillStyle = 'white';
-        ctx.fillText("G H O S T   A T E L I E R", w/2, h/2);   
-    }
+    window.addEventListener('orientationchange', updateWindowDimensions);
 
     const createCanvas = () => {
         canvas = canvasRef.current;
@@ -146,7 +141,15 @@ const Main = () => {
         animation = requestAnimationFrame(step);
     }
 
-    const handleOnClick = () => {
+    const drawLogo = () => {
+        ctx.font = "15px Arial";
+        ctx.textBaseline = 'middle';
+        ctx.textAlign = "center";
+        ctx.fillStyle = 'white';
+        ctx.fillText("G H O S T   A T E L I E R", w/2, h/2);
+    }
+
+    const handleOnClick = (e) => {
         if(!initialized){
             createCanvas();
             init();
@@ -154,15 +157,53 @@ const Main = () => {
             initialized = true;
         }
         else{
-            //ctx.restore();
+            //console.log(`x: ${e.clientX}, y: ${e.clientY}`);
+            clickableLink();
         }
     }
 
     const handleMouseAction = (e) => {
         //console.log("handleMouseAction");
         //console.log(`x: ${e.clientX}, y: ${e.clientY}`)
-        mx = e.clientX;
-        my = e.clientY;
+        let x = e.clientX;
+        let y = e.clientY;
+
+        let linkWidth = 175;
+        let linkX = w/2 - linkWidth/2;
+        let linkHeight = 17;
+        let linkY = h/2 - linkHeight/2;
+
+        mx = x;
+        my = y;
+
+        if(x>=linkX && x <= (linkX + linkWidth) && y>=linkY && y<= (linkY + linkHeight)){
+            document.body.style.cursor = "pointer";
+            clickable=true;
+        }
+        else{
+            document.body.style.cursor = "";
+            clickable=false;
+        }
+        
+    }
+
+    const handleTouchAction = (e) => {
+        //console.log("handleMouseAction");
+        //console.log(`x: ${e.clientX}, y: ${e.clientY}`)
+        var touch = e.touches[0];
+        mx = touch.pageX;
+        my = touch.pageY;
+    }
+
+    const handleTouchEnd = (e) => {
+        mx = undefined;
+        my = undefined;
+    }
+
+    const clickableLink = () => {
+        if(clickable){
+            window.open('https://www.instagram.com/ghostatelier/', '_blank');
+        }
     }
 
     //TODO: get init and step to start right away and take off scrolling, make sure the entire canvas covers the screen and get the logo on top of the canvas
@@ -173,9 +214,10 @@ const Main = () => {
                 ref={canvasRef}
                 width={window.innerWidth}
                 height={window.innerHeight}
-                onClick={e => {handleOnClick()}}
+                onClick={e => {handleOnClick(e)}}
                 onMouseMove={e => {handleMouseAction(e)}}
-                onTouchStart={e => {handleMouseAction(e)}}
+                onTouchMove={e => {handleTouchAction(e)}}
+                onTouchEnd={e=> {handleTouchEnd(e)}}
             />
         </>
     )
