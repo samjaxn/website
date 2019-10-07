@@ -43,19 +43,10 @@ particle = {
 };
 
 const Main = () => {
-    const [size, changeSize] = React.useState([]);
     const canvasRef = React.useRef(null);
-    
-    React.useEffect(() => {
-        console.log("useEffect");
-        /*const canvas = canvasRef.current
-        const ctx = canvas.getContext('2d')
-        ctx.clearRect(0, 0, window.innerHeight, window.innerWidth)
-        locations.forEach(location => draw(ctx, location))*/
-    })
 
     const updateWindowDimensions = () => {
-        console.log("dimensions changed");
+        //console.log("dimensions changed");
         initialized = false;
         cancelAnimationFrame(animation);
         handleOnClick();
@@ -94,10 +85,10 @@ const Main = () => {
                 NUM_PARTICLES++;
             }
         }
-        console.log(ROWS);
-        console.log(COLS);
-        console.log(list.length);
-        console.log(NUM_PARTICLES);
+        //console.log(ROWS);
+        //console.log(COLS);
+        //console.log(list.length);
+        //console.log(NUM_PARTICLES);
     }
     
     function step() {
@@ -205,8 +196,6 @@ const Main = () => {
             window.open('https://www.instagram.com/ghostatelier/', '_blank');
         }
     }
-
-    //TODO: get init and step to start right away and take off scrolling, make sure the entire canvas covers the screen and get the logo on top of the canvas
 
     return (
         <>
