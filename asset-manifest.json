@@ -1,18 +1,18 @@
 {
   "files": {
-    "main.css": "/ghost/static/css/main.d04181cf.chunk.css",
-    "main.js": "/ghost/static/js/main.e865e123.chunk.js",
-    "main.js.map": "/ghost/static/js/main.e865e123.chunk.js.map",
-    "runtime~main.js": "/ghost/static/js/runtime~main.09b4448c.js",
-    "runtime~main.js.map": "/ghost/static/js/runtime~main.09b4448c.js.map",
-    "static/css/2.0624914a.chunk.css": "/ghost/static/css/2.0624914a.chunk.css",
-    "static/js/2.fed41ea4.chunk.js": "/ghost/static/js/2.fed41ea4.chunk.js",
-    "static/js/2.fed41ea4.chunk.js.map": "/ghost/static/js/2.fed41ea4.chunk.js.map",
-    "index.html": "/ghost/index.html",
-    "precache-manifest.58e16cf4958afbbbfeb3397c20a6301a.js": "/ghost/precache-manifest.58e16cf4958afbbbfeb3397c20a6301a.js",
-    "service-worker.js": "/ghost/service-worker.js",
-    "static/css/2.0624914a.chunk.css.map": "/ghost/static/css/2.0624914a.chunk.css.map",
-    "static/css/main.d04181cf.chunk.css.map": "/ghost/static/css/main.d04181cf.chunk.css.map",
-    "static/media/ghostLogo.svg": "/ghost/static/media/ghostLogo.e124389b.svg"
+    "main.css": "/website/static/css/main.d04181cf.chunk.css",
+    "main.js": "/website/static/js/main.8a8db2cd.chunk.js",
+    "main.js.map": "/website/static/js/main.8a8db2cd.chunk.js.map",
+    "runtime~main.js": "/website/static/js/runtime~main.de462641.js",
+    "runtime~main.js.map": "/website/static/js/runtime~main.de462641.js.map",
+    "static/css/2.0624914a.chunk.css": "/website/static/css/2.0624914a.chunk.css",
+    "static/js/2.fed41ea4.chunk.js": "/website/static/js/2.fed41ea4.chunk.js",
+    "static/js/2.fed41ea4.chunk.js.map": "/website/static/js/2.fed41ea4.chunk.js.map",
+    "index.html": "/website/index.html",
+    "precache-manifest.0a74c497b8ee151f6e83b31aeab14876.js": "/website/precache-manifest.0a74c497b8ee151f6e83b31aeab14876.js",
+    "service-worker.js": "/website/service-worker.js",
+    "static/css/2.0624914a.chunk.css.map": "/website/static/css/2.0624914a.chunk.css.map",
+    "static/css/main.d04181cf.chunk.css.map": "/website/static/css/main.d04181cf.chunk.css.map",
+    "static/media/ghostLogo.svg": "/website/static/media/ghostLogo.e124389b.svg"
   }
 }
