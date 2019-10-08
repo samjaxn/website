@@ -184,6 +184,7 @@ const Main = () => {
         var touch = e.touches[0];
         mx = touch.pageX;
         my = touch.pageY;
+        e.preventDefault();
     }
 
     const handleTouchEnd = (e) => {
